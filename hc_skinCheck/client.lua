@@ -35,6 +35,11 @@ local defaultSkin = {
     glasses_2 = 0,
 }
 
+AddEventHandler("sc:defaultSkin", function()
+    TriggerEvent('skinchanger:loadSkin', defaultSkin)
+end)
+
+
 -- Function to register commands
 RegisterCommand('sc.loadDefaultModel', function(source, args, rawCommand)
     TriggerEvent('skinchanger:loadDefaultModel', isMale)
