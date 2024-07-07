@@ -73,7 +73,7 @@ function spawnRegularNPC()
     while not HasModelLoaded(npcModel) do
         Wait(1)
     end
-    local npc = CreatePed(4, npcModel, px + 2, py + 2, pz, 0.0, true, false)
+    local npc = CreatePed(4, npcModel, px + 10, py + 10, pz, 0.0, true, false)
     SetPedFleeAttributes(npc, 0, 0)
     SetPedAsEnemy(npc, false)
     SetPedCanRagdoll(npc, true)
@@ -83,7 +83,7 @@ end
 
 Citizen.CreateThread(function()
     while true do
-        SpawnRegularNPC()
-        Citizen.Wait(1000)  -- Delay of 1000 milliseconds (1 second)
+        spawnRegularNPC()
+        Citizen.Wait(60000)  -- Delay of 1000 milliseconds (1 second)
     end
 end)
