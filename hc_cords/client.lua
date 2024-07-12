@@ -23,9 +23,10 @@ Citizen.CreateThread(function()
             ShowCords()
             if display then
                 local coords = GetEntityCoords(PlayerPedId())
+                local heading = GetEntityHeading(PlayerPedId())
                 SendNUIMessage({
                     action = "setCoords",
-                    coords = coords.x .. ", " .. coords.y .. ", " .. coords.z
+                    coords = math.floor(coords.x) .. ".0, " .. math.floor(coords.y) .. ".0, " .. math.floor(coords.z) .. ".0 - " .. math.floor(heading) .. ".0"
                 })
             end
         end

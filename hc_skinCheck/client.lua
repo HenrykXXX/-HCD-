@@ -40,6 +40,8 @@ AddEventHandler("sc:defaultSkin", function()
 end)
 
 
+
+
 -- Function to register commands
 RegisterCommand('sc.loadDefaultModel', function(source, args, rawCommand)
     TriggerEvent('skinchanger:loadDefaultModel', isMale)
@@ -49,9 +51,18 @@ RegisterCommand('sc.loadSkin', function(source, args, rawCommand)
     TriggerEvent('skinchanger:loadSkin', defaultSkin)
 end)
 
+local bag = 0
+
+RegisterCommand("sc.getModel", function(source , args, rawCommand) 
+    print(GetEntityModel(PlayerPedId()))
+end)
+
 RegisterCommand('sc.loadPartialSkin', function(source, args, rawCommand)
     TriggerEvent('skinchanger:getSkin', function(skin)
-		uniformObject = {
+		bag = bag + 1
+        print(bag)
+        uniformObject = {
+            bags_1 = bag,
             tshirt_1 = 58,  tshirt_2 = 0,
             torso_1 = 55,   torso_2 = 0,
             decals_1 = 0,   decals_2 = 0,

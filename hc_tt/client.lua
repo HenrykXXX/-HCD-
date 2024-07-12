@@ -2,7 +2,7 @@ local storedEntity = nil
 local storedModel = nil
 
 -- Utility function to convert rotation vector to a direction vector
-function RotationToDirection(rotation)
+local  function RotationToDirection(rotation)
     local adjustedRotation = {
         x = (math.pi / 180) * rotation.x,
         y = (math.pi / 180) * rotation.y,
@@ -17,7 +17,7 @@ function RotationToDirection(rotation)
 end
 
 -- Function to get the entity the player is currently looking at
-function GetEntityPlayerIsLookingAt()
+local function GetEntityPlayerIsLookingAt()
     local playerPed = GetPlayerPed(-1)
     local camCoord = GetGameplayCamCoord()
     local camRot = GetGameplayCamRot(2)

@@ -3,14 +3,12 @@ window.addEventListener('message', function(event) {
         document.body.style.display = 'flex';
     } else if (event.data.action === 'setCoords') {
         // Convert string to an array, assuming coordinates are separated by a comma and a space
-        const coordsArray = event.data.coords.split(', ').map(Number);
+        const coords = event.data.coords;
         
-        // Round coordinates to full values
-        const roundedCoords = coordsArray.map(coord => Math.round(coord));
-        
+    
         // Set rounded coordinates to the coordinate box
         const coordBox = document.getElementById('coordBox');
-        coordBox.value = roundedCoords.join(', ');
+        coordBox.value = coords
     }
 });;
 
